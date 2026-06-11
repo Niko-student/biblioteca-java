@@ -52,6 +52,53 @@ public class biblioteca {
                         System.out.println("Livro cadastrado!");
                     }
                     break;
+
+                case 2:
+                    if (biblioteca.length == 0) {
+                        System.out.println("Nenhum livro cadastrado ainda.");
+                        break;
+                    }
+                    System.out.println("\n=> Nossos livros:");
+                    for (int i = 0; i < biblioteca.length; i++) {
+                        // Acessa os atributos do objeto com o ponto "."
+                        System.out.println((i + 1) + " - " + biblioteca[i].nome + " ( " + biblioteca[i].quantidade + " )");
+                    }
+                    break;
+
+                case 3:
+                    if (biblioteca.length == 0) {
+                        System.out.println("Nenhum livro cadastrado ainda.");
+                        break;
+                    }
+                    System.out.println("\n=> Nossos livros:");
+                    for (int i = 0; i < biblioteca.length; i++) {
+                        System.out.println((i + 1) + " - " + biblioteca[i].nome + " ( " + biblioteca[i].quantidade + " )");
+                    }
+
+                    System.out.print("Qual livro doar: ");
+                    String compra = teclado.nextLine();
+                    System.out.print("Quantos deseja doar: ");
+                    int quantCompra = teclado.nextInt();
+                    teclado.nextLine();
+
+                    boolean encontrado = false;
+
+                    for (int i = 0; i < biblioteca.length; i++) {
+                        if (compra.equals(biblioteca[i].nome)) {
+                            encontrado = true;
+                            if (quantCompra <= biblioteca[i].quantidade) {
+                                biblioteca[i].quantidade -= quantCompra;
+                                soma -= quantCompra;
+                                System.out.println("Livro doado!");
+                                System.out.println("Quantidade restante: " + biblioteca[i].quantidade);
+                            } else {
+                                System.out.println("Quantidade insuficiente!");
+                            }
+                        }
+                    }
+
+                    if (!encontrado) System.out.println("Livro não encontrado.");
+                    break;
             }
         }
     }
