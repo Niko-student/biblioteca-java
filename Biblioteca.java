@@ -99,6 +99,55 @@ public class biblioteca {
 
                     if (!encontrado) System.out.println("Livro não encontrado.");
                     break;
+
+                case 4:
+                    System.out.println("\n=> Nossos livros:");
+                    for (int i = 0; i < biblioteca.length; i++) {
+                        System.out.println((i + 1) + " - " + biblioteca[i].nome);
+                    }
+
+                    System.out.print("Qual livro devolver: ");
+                    String devolver = teclado.nextLine();
+                    System.out.print("Quantos devolver: ");
+                    int quantDevol = teclado.nextInt();
+                    teclado.nextLine();
+
+                    boolean devolvido = false;
+
+                    for (int i = 0; i < biblioteca.length; i++) {
+                        if (devolver.equals(biblioteca[i].nome)) {
+                            devolvido = true;
+                            biblioteca[i].quantidade += quantDevol;
+                            soma += quantDevol;
+                            System.out.println("Livro devolvido!");
+                            System.out.println("Quantidade atual: " + biblioteca[i].quantidade);
+                        }
+                    }
+
+                    if (!devolvido) {
+                        // Livro não existe, cria novo objeto e adiciona
+                        Livro[] novaLista = new Livro[biblioteca.length + 1];
+                        for (int i = 0; i < biblioteca.length; i++) {
+                            novaLista[i] = biblioteca[i];
+                        }
+                        novaLista[biblioteca.length] = new Livro(devolver, quantDevol);
+                        soma += quantDevol;
+                        biblioteca = novaLista;
+                        System.out.println("Livro não encontrado. Adicionado ao acervo!");
+                    }
+                    break;
+
+                case 5:
+                    if (biblioteca.length == 0) { System.out.println("Nenhum livro cadastrado."); break; }
+                    Livro maisExemp = biblioteca[0];
+                    for (int i = 1; i < biblioteca.length; i++) {
+                        if (biblioteca[i].quantidade > maisExemp.quantidade) {
+                            maisExemp = biblioteca[i]; // guarda o próprio objeto
+                        }
+                    }
+                    System.out.println("\n===Mais Exemplares===");
+                    System.out.println(maisExemp.nome + " ( " + maisExemp.quantidade + " )");
+                    break;
             }
         }
     }
