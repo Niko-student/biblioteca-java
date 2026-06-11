@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Biblioteca {
+public class biblioteca {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
@@ -23,6 +23,36 @@ public class Biblioteca {
 
             int opcao = teclado.nextInt();
             teclado.nextLine();
+
+            switch (opcao) {
+
+                case 1:
+                    System.out.print("Quantos livros deseja cadastrar? ");
+                    int qtdCadastrar = teclado.nextInt();
+                    teclado.nextLine();
+
+                    for (int i = 0; i < qtdCadastrar; i++) {
+                        // Expande o array de objetos
+                        Livro[] novaLista = new Livro[biblioteca.length + 1];
+                        for (int j = 0; j < biblioteca.length; j++) {
+                            novaLista[j] = biblioteca[j];
+                        }
+
+                        System.out.print("Nome do livro: ");
+                        String nome = teclado.nextLine();
+                        System.out.print("Quantidade: ");
+                        int quant = teclado.nextInt();
+                        teclado.nextLine();
+
+                        // Cria o objeto e adiciona no array
+                        novaLista[biblioteca.length] = new Livro(nome, quant);
+                        soma += quant;
+                        biblioteca = novaLista;
+
+                        System.out.println("Livro cadastrado!");
+                    }
+                    break;
+            }
         }
     }
 }
