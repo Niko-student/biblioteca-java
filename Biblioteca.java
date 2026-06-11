@@ -148,6 +148,28 @@ public class biblioteca {
                     System.out.println("\n===Mais Exemplares===");
                     System.out.println(maisExemp.nome + " ( " + maisExemp.quantidade + " )");
                     break;
+
+                case 6:
+                    if (biblioteca.length == 0) { System.out.println("Nenhum livro cadastrado."); break; }
+                    System.out.println("\n===Livros com menos de 5 exemplares===");
+                    for (int i = 0; i < biblioteca.length; i++) {
+                        if (biblioteca[i].quantidade < 5) {
+                            System.out.println(biblioteca[i].nome + " ( " + biblioteca[i].quantidade + " )");
+                        }
+                    }
+                    break;
+
+                case 7:
+                    System.out.println("\nTotal de exemplares: " + soma);
+                    break;
+
+                case 0:
+                    System.out.println("Encerrando... Até logo!");
+                    teclado.close();
+                    return;
+
+                default:
+                    System.out.println("Opção inválida! Tente novamente.");
             }
         }
     }
