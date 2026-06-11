@@ -23,6 +23,7 @@ Tecnologias,
 Java, 
 Scanner, 
 IDE NetBeans, 
-Objetivo, 
+
+Objetivo:
 
 Este projeto foi criado para consolidar os conhecimentos adquiridos durante os estudos do livro Use a Cabeça Java e servir como base para projetos maiores no futuro.
