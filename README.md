@@ -22,7 +22,7 @@ Organização de código,
 Tecnologias, 
 Java, 
 Scanner, 
-IDE NetBeans, 
+IDE NetBeans.
 
 Objetivo:
 
